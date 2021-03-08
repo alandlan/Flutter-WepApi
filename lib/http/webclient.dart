@@ -24,7 +24,7 @@ Future<List<Transaction>> findAll() async {
   );
 
   final Response response =
-  await client.get('http://192.168.1.105:8080/transactions');
+  await client.get('http://192.168.1.105:8080/transactions').timeout(Duration(seconds: 15));
   final List<dynamic> decodedJson = jsonDecode(response.body);
   final List<Transaction> transactions = List();
 
