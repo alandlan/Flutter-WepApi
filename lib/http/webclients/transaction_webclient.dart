@@ -18,7 +18,10 @@ class TransactionWebClient {
     final String transactionJson = jsonEncode(transaction.toJson());
 
     final Response response = await client.post(urlBase,
-        headers: {'Content-Type': 'application/json', 'password': '1000'},
+        headers: {
+          'Content-Type': 'application/json',
+          'password': '1000',
+        },
         body: transactionJson);
 
     return Transaction.fromJson(jsonDecode(response.body));
